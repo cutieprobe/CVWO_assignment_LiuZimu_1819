@@ -1,0 +1,23 @@
+<% provide(:title, "#{@user.name}New Task") %>
+<h2>Add a Task:</h2>
+<%= form_with(model: [ @user, @user.tasks.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :deadline %><br>
+    <%= form.text_field :deadline %>
+  </p>
+  <p>
+    <%= form.label :details %><br>
+    <%= form.text_area :details %>
+  </p>
+  <p>
+    <%= form.label :tags %><br>
+    <%= form.text_field :tags %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
