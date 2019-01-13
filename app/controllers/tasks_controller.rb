@@ -9,8 +9,12 @@ class TasksController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @task = @user.tasks.create(task_params)
-    redirect_to @user
+    @task = @user.tasks.new(task_params)
+    if @task.save
+      redirect_to @user
+    else 
+      render 'new'
+    end
   end
 
   def show

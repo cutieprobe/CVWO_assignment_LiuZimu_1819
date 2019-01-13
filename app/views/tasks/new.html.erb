@@ -1,4 +1,4 @@
-<% provide(:title, "#{@user.name}New Task") %>
+<% provide(:title, " #{@user.name} New Task") %>
 <h2>Add a Task:</h2>
 <%= form_with(model: [ @user, @user.tasks.build ], local: true) do |form| %>
   <p>
