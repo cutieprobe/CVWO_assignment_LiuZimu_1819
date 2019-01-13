@@ -5,6 +5,6 @@ class TagsController < ApplicationController
 
   def show
     @tag = ActsAsTaggableOn::Tag.find(params[:id])
-    @tasks = Task.tagged_with(@tag.name)
+    @tasks = current_user.tasks.tagged_with(@tag.name)
   end
 end
