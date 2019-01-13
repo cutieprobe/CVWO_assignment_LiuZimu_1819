@@ -16,5 +16,12 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= @task.tags %>
+  <%= render @task.tags %>
 </p>
+
+<p>
+<%= link_to "Update", edit_user_task_path(@user, @task) %>
+<%= link_to "Delete", user_task_path(@user, @task), method: :delete, data:{ confirm: 'Are you sure?' } %>
+<%= link_to "Back", user_path(@user) %>
+</p>
+

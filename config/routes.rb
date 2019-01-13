@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'tags/index'
+
+  get 'tags/show'
+
   get 'sessions/new'
   root 'static_pages#home'
   get '/help', to: 'static_pages#help'
@@ -10,4 +14,5 @@ Rails.application.routes.draw do
   resources :users do
     resources :tasks
   end
+  resources :tags, only: [:index, :show]
 end

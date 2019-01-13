@@ -1,0 +1,23 @@
+<% provide(:title, "#{@user.name}Edit Task") %>
+<h1>Update Task <%= @task.title %></h1>
+<%= form_with model: [@user, @task] do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, placeholder: @task.title %>
+  </p>
+  <p>
+    <%= form.label :deadline %><br>
+    <%= form.date_field :deadline %>
+  </p>
+  <p>
+    <%= form.label :details %><br>
+    <%= form.text_area :details, placeholder: @task.details %>
+  </p>
+  <p>
+    <%= form.label :tags %><br>
+    <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: @task.tag_list %>
+  </p>
+  <p>
+    <%= form.submit "Save changes" %>
+  </p>
+<% end %>

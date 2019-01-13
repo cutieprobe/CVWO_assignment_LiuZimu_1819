@@ -15,7 +15,7 @@
   </p>
   <p>
     <%= form.label :tags %><br>
-    <%= form.text_field :tags %>
+    <%= form.text_field :tag_list, value: form.object.tag_list.to_s %>
   </p>
   <p>
     <%= form.submit %>
