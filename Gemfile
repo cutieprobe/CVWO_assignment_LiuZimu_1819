@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '5.1.6'
+gem 'rails',        '5.2.2'
 gem 'bcrypt',       '3.1.12'
 gem 'bootstrap-sass', '3.3.7'
 gem 'puma',         '3.9.1'
@@ -38,7 +38,6 @@ end
 
 group :assets do
   gem 'therubyracer'
-  gem 'sass-rails', '5.0.6'
   gem 'coffee-rails', '4.2.2'
   gem 'uglifier', '3.2.0'
 end
