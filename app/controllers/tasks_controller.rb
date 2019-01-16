@@ -2,6 +2,9 @@ class TasksController < ApplicationController
   before_action :correct_user
 
   def index
+    @user = User.find(params[:user_id])
+    @all_tasks = @user.tasks.all
+    @tasks = @all_tasks.tagged_with(params[:search]).order("created_at DESC")
   end
 
   def new

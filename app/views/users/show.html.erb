@@ -18,6 +18,11 @@
 All Tasks
 </h4>
 
+<%= form_tag(user_tasks_path(@user), :method => 'get', id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Tags" %>
+<%= submit_tag "Search" %>
+<% end %>
+
 <h2>
 <ul class="tasks">
   <% @user.tasks.each do |task| %>
