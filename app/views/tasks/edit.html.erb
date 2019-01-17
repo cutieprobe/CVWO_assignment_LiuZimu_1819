@@ -1,6 +1,15 @@
-<% provide(:title, "#{@user.name}Edit Task") %>
+<% provide(:title, "#{@user.name} Edit Task #{@task.title}") %>
 <h1>Update Task <%= @task.title %></h1>
-<%= form_with model: [@user, @task] do |form| %>
+<%= form_with(model: [ @user, @task ], local: true) do |form| %>
+<% if @task.errors.any? %>
+    <div>
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title, placeholder: @task.title %>

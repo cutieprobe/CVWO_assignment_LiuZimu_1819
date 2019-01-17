@@ -8,12 +8,15 @@ class TasksController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
+    @task = @user.tasks.new
   end
 
   def create
     @user = User.find(params[:user_id])
     @task = @user.tasks.new(task_params)
     if @task.save
+      flash[:success] = "Task #{@task.title} successfully created!"
       redirect_to @user
     else 
       render 'new'
@@ -34,6 +37,7 @@ class TasksController < ApplicationController
     @user = User.find(params[:user_id])
     @task = @user.tasks.find(params[:id])
     if @task.update(task_params)
+      flash[:success] = "Task #{@task.title} successfully updated!"
       redirect_to user_task_path(@user, @task)
     else 
       render 'edit'
