@@ -39,7 +39,11 @@ private
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless @user == current_user
+    if @user != current_user
+      flash[:success] = "You have no access to others' To-Do List!"
+      redirect_to users_path
+    else
+    end
   end
 
 end

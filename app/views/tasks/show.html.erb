@@ -1,27 +1,24 @@
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
- 
+<ul class="list-group list-group-flush" style="font-size:1.5em; margin: auto;width: 50%">
+  <li class="list-group-item">
+    <strong>Title:</strong>
+    <%= @task.title %>
+  </li>
+  <li class="list-group-item">
+    <strong>Deadline:</strong>
+    <%= @task.deadline %>
+  </li>
+  <li class="list-group-item">
+    <strong>Details:</strong>
+    <%= @task.details %>
+  </li>
+  <li class="list-group-item">
+    <strong>Tags:</strong>
+    <%= render @task.tags %>
+  </li>
+</ul>
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @task.deadline %>
-</p>
-
-<p>
-  <strong>Details:</strong>
-  <%= @task.details %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= render @task.tags %>
-</p>
-
-<p>
-<%= link_to "Update", edit_user_task_path(@user, @task) %>
-<%= link_to "Delete", user_task_path(@user, @task), method: :delete, data:{ confirm: 'Are you sure?' } %>
-<%= link_to "Back", user_path(@user) %>
-</p>
-
+<div style="text-align:center;font-size:1.2em;">
+    <%= link_to "Update", edit_user_task_path(@user, @task), class:"btn btn-primary" %>
+    <%= link_to "Delete", user_task_path(@user, @task), method: :delete, data:{ confirm:  'Are you sure?' }, class:"btn btn-primary"%>
+    <%= link_to "Back", user_path(@user), class:"btn btn-primary"%>
+</div>

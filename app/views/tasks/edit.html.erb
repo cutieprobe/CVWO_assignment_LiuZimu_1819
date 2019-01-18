@@ -1,5 +1,7 @@
 <% provide(:title, "#{@user.name} Edit Task #{@task.title}") %>
+<%= link_to "Back", user_task_path(@user, @task), class:"btn btn-primary"%>
 <h1>Update Task <%= @task.title %></h1>
+<h4>
 <%= form_with(model: [ @user, @task ], local: true) do |form| %>
 <% if @task.errors.any? %>
     <div>
@@ -16,7 +18,7 @@
   </p>
   <p>
     <%= form.label :deadline %><br>
-    <%= form.date_field :deadline %>
+    <%= form.date_field :deadline, :value=> @task.deadline %>
   </p>
   <p>
     <%= form.label :details %><br>
@@ -27,6 +29,7 @@
     <%= form.text_field :tag_list, value: form.object.tag_list.to_s, placeholder: @task.tag_list %>
   </p>
   <p>
-    <%= form.submit "Save changes" %>
+    <%= form.submit "Save changes", class:"btn btn-primary", style:"font-size:1.2em;" %>
   </p>
 <% end %>
+</h4>

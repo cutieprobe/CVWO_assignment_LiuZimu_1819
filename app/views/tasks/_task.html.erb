@@ -1,5 +1,6 @@
-<h2><%= link_to task.title, user_task_path(current_user,task) %>
-      <%= task.deadline %>
-      <%= link_to "update", edit_user_task_path(current_user, task) %>
-      <%= link_to "delete", user_task_path(current_user, task), method: :delete, data:{ confirm: 'Are you sure?' }  %>
-</h2>
+      <th scope="row"><%= link_to task.title, user_task_path(current_user, task) %></th>
+      <td><%= task.deadline %></td>
+      <td>
+        <%= link_to "Update", edit_user_task_path(current_user, task) %>
+	<%= link_to "Delete", user_path(current_user), method: :delete, data:{ confirm:  'Are you sure?' } %>
+      </td>
