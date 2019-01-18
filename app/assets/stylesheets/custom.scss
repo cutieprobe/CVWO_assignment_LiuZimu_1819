@@ -78,6 +78,9 @@ p {
 
 .dropdown-toggle {
   color: white;
+  &:hover {
+    color:#563d7c;
+}
 }
 
 .drop {
@@ -89,10 +92,22 @@ a {
 .nav-item{
 a {
   color: white;
-}  
+  &:hover {
+    color:#563d7c;
+}
+}
 }
 
 
+.drop{
+a {
+  font-size:1.2em;
+  color: white;
+  &:hover {
+    color:#9370DB;
+}
+}
+}
 
 /* header */
 

@@ -1,4 +1,4 @@
-<% provide(:title, "#{@user.name} Edit Task #{@task.title}") %>
+<% provide(:title, "#{@user.name} Edit #{@task.title}") %>
 <%= link_to "Back", user_task_path(@user, @task), class:"btn btn-primary"%>
 <h1>Update Task <%= @task.title %></h1>
 <h4>

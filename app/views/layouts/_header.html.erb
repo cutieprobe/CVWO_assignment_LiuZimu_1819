@@ -11,9 +11,9 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu" style="background-color: #9370DB;">
-              <li><%= link_to "Profile", current_user, style:"font-size:1.2em;color:white;"%></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete, style:"font-size:1.2em;color:white;" %>
+              <li class="drop"><%= link_to "Profile", current_user%></li>
+              <li class="drop">
+                <%= link_to "Log out", logout_path, method: :delete %>
               </li>
             </ul>
           </li>
