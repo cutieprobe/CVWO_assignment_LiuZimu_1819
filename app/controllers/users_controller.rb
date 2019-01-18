@@ -40,7 +40,7 @@ private
   def correct_user
     @user = User.find(params[:id])
     if @user != current_user
-      flash[:success] = "You have no access to others' To-Do List!"
+      flash[:danger] = "You have no access to others' To-Do List!"
       redirect_to users_path
     else
     end
