@@ -42,10 +42,12 @@ Ongoing Tasks
 <%= link_to '', user_task_complete_path(@user, task), method: :patch, class:" glyphicon glyphicon-ok" %>
       </th>
       <td><%= link_to task.title, user_task_path(@user, task) %></td>
-      <% if (Date.parse(task.deadline) - Date.today).to_i < 1 %>
+      <% if (Date.parse(task.deadline) - Date.today).to_i == 1 %>
           <td style="color:red;"><%= "#{task.deadline} ( Due in 1 day )" %></td>
-      <% elsif (Date.parse(task.deadline) - Date.today).to_i == 1 %>
+      <% elsif (Date.parse(task.deadline) - Date.today).to_i == 0 %>
           <td style="color:red;"><%= "#{task.deadline} ( Due today )" %></td>
+      <% elsif (Date.parse(task.deadline) - Date.today).to_i < 0 %>
+          <td style="color:red;"><%= "#{task.deadline} ( OVERDUE )" %></td>
       <% else %>
           <td><%= task.deadline %></td>
       <% end %>
