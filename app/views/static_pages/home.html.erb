@@ -1,11 +1,17 @@
 <div class="center jumbotron">
+<% if logged_in? %>
+<div class="welcome">
+<%= "Hi #{current_user.name}, am I cute?" %>
+</div>
 
+<% else %>
 <div class="welcome">
 Welcome to To-do List Manager!
 </div>
 
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-warning" %>
 </div>
+<% end %>
 
 <div class="center">
 <%= link_to image_tag("cat.jpeg", alt: "Cat logo"),

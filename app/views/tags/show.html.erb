@@ -1,5 +1,5 @@
 <% provide(:title, " #{current_user.name} tag: #{@tag.name}") %>
-<h1><%= @tag.name %></h1>
+<h1><%= "View Tag #{@tag.name}" %></h1>
 
 <h3>
 <table class="table table-striped table-hover" style="width: 50%; margin: auto;">
@@ -22,5 +22,5 @@
 </h3>
 
 <div class="center" style="font-size:1.5em;">
-<%= link_to "Back", tags_path, class:"btn btn-primary" %>
+<%= link_to "Back", "javascript:history.back()", class:"btn btn-primary" %>
 </div>

@@ -6,7 +6,7 @@
 </div>
 
 <h1>
-<%= @user.name %>
+<%= "#{@user.name}'s Tasks" %>
 </h1>
 
 
@@ -19,9 +19,14 @@
 
 <h1> </h1>
 
+<% if @user.tasks.blank? %>
+<h3 style="color:grey;text-align:center;font-size:2.5em;">No task yet.</h3>
+<% else %>
+
 <div style="text-align:center;font-size:2.2em;font-weight:bold">
 Ongoing Tasks
 </div>
+
 
 <h3>
 <table class="table table-striped table-hover" style="width: 50%; margin: auto;">
@@ -42,14 +47,19 @@ Ongoing Tasks
 <%= link_to '', user_task_complete_path(@user, task), method: :patch, class:" glyphicon glyphicon-ok" %>
       </th>
       <td><%= link_to task.title, user_task_path(@user, task) %></td>
-      <% if (Date.parse(task.deadline) - Date.today).to_i == 1 %>
-          <td style="color:red;"><%= "#{task.deadline} ( Due in 1 day )" %></td>
-      <% elsif (Date.parse(task.deadline) - Date.today).to_i == 0 %>
-          <td style="color:red;"><%= "#{task.deadline} ( Due today )" %></td>
-      <% elsif (Date.parse(task.deadline) - Date.today).to_i < 0 %>
-          <td style="color:red;"><%= "#{task.deadline} ( OVERDUE )" %></td>
+      <% if task.deadline.blank? %>
+        <td><%= task.deadline %></td>
       <% else %>
-          <td><%= task.deadline %></td>
+        <% dif = (Date.parse(task.deadline) - Date.today).to_i %>
+	      <% if dif <= 3 %>
+		  <td style="color:red;"><%= "#{task.deadline} ( Due in #{dif} day )" %></td>
+	      <% elsif dif == 0 %>
+		  <td style="color:red;"><%= "#{task.deadline} ( Due today )" %></td>
+	      <% elsif dif < 0 %>
+		  <td style="color:red;"><%= "#{task.deadline} ( OVERDUE )" %></td>
+	      <% else %>
+		  <td><%= task.deadline %></td>
+	      <% end %>
       <% end %>
       <td>
         <%= link_to "Update", edit_user_task_path(@user, task) %>
@@ -98,3 +108,5 @@ Completed Tasks
   </tbody>
 </table>
 </h3>
+
+<% end %>
