@@ -1,4 +1,13 @@
-      <th scope="row"><%= link_to task.title, user_task_path(current_user, task) %></th>
+      <% if !task.completed %>
+      <th scope="row" class="btn", style="font-size:1em;">
+<%= link_to '', user_task_complete_path(current_user, task), method: :patch, class:" glyphicon glyphicon-ok" %>
+      </th>
+    <% else %>
+      <th scope="row" class="btn", style="font-size:1em;">
+<%= link_to '', user_task_undocomplete_path(current_user, task), method: :patch, class:" glyphicon glyphicon-remove" %>
+      </th>
+    <% end %>
+      <td><%= link_to task.title, user_task_path(current_user, task) %></td>
       <td><%= task.deadline %></td>
       <td>
         <%= link_to "Update", edit_user_task_path(current_user, task) %>

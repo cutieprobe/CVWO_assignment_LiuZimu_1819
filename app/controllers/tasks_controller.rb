@@ -49,8 +49,21 @@ class TasksController < ApplicationController
     @task = @user.tasks.find(params[:id])
     @task.destroy
     redirect_to user_path(@user)
-  end 
+  end
 
+  def complete
+    @user = User.find(params[:user_id])
+    @task = @user.tasks.find(params[:task_id])
+    @task.update(completed: true)
+    redirect_to user_path(@user)
+  end
+
+  def undo_complete
+    @user = User.find(params[:user_id])
+    @task = @user.tasks.find(params[:task_id])
+    @task.update(completed: false)
+    redirect_to user_path(@user)
+  end
 
 private
   def task_params

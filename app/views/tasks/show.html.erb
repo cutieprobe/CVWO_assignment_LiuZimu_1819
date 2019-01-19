@@ -5,6 +5,10 @@
     <%= @task.title %>
   </li>
   <li class="list-group-item">
+    <strong>Status:</strong>
+    <%= @task.completed ? "Completed" : "Ongoing" %>
+  </li>
+  <li class="list-group-item">
     <strong>Deadline:</strong>
     <%= @task.deadline %>
   </li>
@@ -19,6 +23,15 @@
 </ul>
 
 <div style="text-align:center;font-size:1.2em;">
+    <% if @task.completed %>
+    <em data-toggle="tooltip" title="Mark as ongoing">
+    <%= link_to '', user_task_undocomplete_path(@user, @task), method: :patch, class:" btn btn-primary glyphicon glyphicon-remove" %>
+    </em>
+    <% else %>
+    <em data-toggle="tooltip" title="Mark as completed">
+    <%= link_to '', user_task_complete_path(@user, @task), method: :patch, class:" btn btn-primary glyphicon glyphicon-ok" %>
+    </em>
+    <% end %>
     <%= link_to "Update", edit_user_task_path(@user, @task), class:"btn btn-primary" %>
     <%= link_to "Delete", user_task_path(@user, @task), method: :delete, data:{ confirm:  'Are you sure?' }, class:"btn btn-primary"%>
     <%= link_to "Back", user_path(@user), class:"btn btn-primary"%>
