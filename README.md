@@ -2,6 +2,6 @@
 
 Name: Liu Zimu
 
-Matric Number: <!-- A0188044B -->
+Matric Number: Hidden
 
 [Working copy](https://warm-spire-46873.herokuapp.com)
