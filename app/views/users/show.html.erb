@@ -51,7 +51,7 @@ Ongoing Tasks
         <td><%= task.deadline %></td>
       <% else %>
         <% dif = (Date.parse(task.deadline) - Date.today).to_i %>
-	      <% if dif <= 3 %>
+	      <% if dif <= 3 && dif > 0 %>
 		  <td style="color:red;"><%= "#{task.deadline} ( Due in #{dif} day )" %></td>
 	      <% elsif dif == 0 %>
 		  <td style="color:red;"><%= "#{task.deadline} ( Due today )" %></td>
