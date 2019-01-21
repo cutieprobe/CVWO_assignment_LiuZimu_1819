@@ -4,10 +4,10 @@ Name: Liu Zimu
 
 Matric Number: Hidden
 
-[Screen-shot](https://github.com/cutieprobe/CVWO_assignment_LiuZimu_1819/blob/master/Mid_assignment_submission/rails_setup_screenshot.png)
+[Screen-shot](https://github.com/cutieprobe/CVWO_assignment_LiuZimu_1819/blob/master/submission/rails_setup_screenshot.png)
 
-[Mid-assignment write-up](https://github.com/cutieprobe/CVWO_assignment_LiuZimu_1819/blob/master/Mid_assignment_submission/Mid_assignment_write_up.pdf)
+[Mid-assignment write-up](https://github.com/cutieprobe/CVWO_assignment_LiuZimu_1819/blob/master/submission/Mid_assignment_write_up.pdf)
 
-[Final write-up](https://github.com/cutieprobe/CVWO_assignment_LiuZimu_1819/blob/master/Mid_assignment_submission/Final_write_up.pdf)
+[Final write-up](https://github.com/cutieprobe/CVWO_assignment_LiuZimu_1819/blob/master/submission/Final_write_up.pdf)
 
 [Working copy](https://warm-spire-46873.herokuapp.com)
