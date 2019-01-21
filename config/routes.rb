@@ -15,5 +15,5 @@ Rails.application.routes.draw do
       patch '/undocomplete', to: 'tasks#undo_complete'
     end
   end
-  resources :tags, only: [:index, :show]
+  resources :tags, only: [:index, :show, :destroy]
 end
