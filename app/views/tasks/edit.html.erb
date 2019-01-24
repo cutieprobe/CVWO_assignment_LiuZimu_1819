@@ -28,7 +28,7 @@
   </p>
   <p>
     <%= form.label :tags %><br>
-    <%= form.text_field :tag_list, value: form.object.tag_list, placeholder: @task.tag_list %>
+    <%= form.text_field :tag_list, value: form.object.tag_list, placeholder: @task.tag_list.blank? ? "Separate each tag with space" : @task.tag_list %>
   </p>
   <p>
     <%= form.submit "Save changes", class:"btn btn-primary", style:"font-size:1.2em;" %>
