@@ -1,5 +1,7 @@
 <% provide(:title, " #{@user.name} New Task") %>
-<%= link_to "Back", "javascript:history.back()", class:"btn btn-primary"%>
+<div>
+<%= render 'layouts/back' %>
+</div>
 <h1>Add a Task:</h1>
 <div style="width:50%;margin:auto;font-size:1.2em;">
 <%= form_with(model: [ @user, @user.tasks.build ], local: true) do |form| %>

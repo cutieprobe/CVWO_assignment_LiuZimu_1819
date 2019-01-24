@@ -1,15 +1,19 @@
       <% if !task.completed %>
       <th scope="row" class="btn", style="font-size:1em;">
-<%= link_to '', user_task_complete_path(current_user, task), method: :patch, class:" glyphicon glyphicon-ok" %>
+<%= link_to '', user_task_complete_path(current_user, task), method: :patch, class:" glyphicon glyphicon-time" %>
       </th>
     <% else %>
       <th scope="row" class="btn", style="font-size:1em;">
-<%= link_to '', user_task_undocomplete_path(current_user, task), method: :patch, class:" glyphicon glyphicon-remove" %>
+<%= link_to '', user_task_undocomplete_path(current_user, task), method: :patch, class:" glyphicon glyphicon-ok" %>
       </th>
     <% end %>
       <td><%= link_to task.title, user_task_path(current_user, task) %></td>
       <td><%= task.deadline %></td>
       <td>
-        <%= link_to "Update", edit_user_task_path(current_user, task) %>
-	<%= link_to "Delete", user_path(current_user), method: :delete, data:{ confirm:  'Are you sure?' } %>
+          <em scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Edit task">
+          <%= link_to '', edit_user_task_path(current_user, task), class:" glyphicon glyphicon-pencil" %>
+            </em>
+              <em scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Delete task">
+              <%= link_to '', user_task_path(current_user, task), method: :delete, data:{ confirm:  'Are you sure?' }, class:" glyphicon glyphicon-trash" %>
+              </em>
       </td>

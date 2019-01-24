@@ -1,4 +1,7 @@
 <% provide(:title, " #{current_user.name} All Tags") %>
+<div>
+<%= render 'layouts/back' %>
+</div>
 <h1>All Tags</h1>
 <% if @tags.blank? %>
 <h3 style="color:grey;text-align:center;font-size:2.5em;">No tag yet.</h3>
@@ -15,7 +18,3 @@
 </h3>
 </div>
 <% end %>
-
-<div class="center" style="font-size:1.2em;">
-<%= link_to "Back", "javascript:history.back()", class:"btn btn-primary" %>
-</div>

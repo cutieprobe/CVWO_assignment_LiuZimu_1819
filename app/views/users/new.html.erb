@@ -1,6 +1,7 @@
 <% provide(:title, 'Sign up') %>
 
-<%= link_to "Back", "javascript:history.back()", class:"btn btn-primary" %>
+<%= render "layouts/back" %>
+
 <h1>Sign up</h1>
 <div class="row" style="font-size:1.4em;">
   <div class="col-md-6 col-md-offset-3">
@@ -15,16 +16,16 @@
 	</div>
       <% end %>
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, placeholder: "(No longer than 16 characters)" %>
 
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, placeholder: "Enter your email" %>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, placeholder: "(6 to 24 characters)" %>
 
       <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: "Enter your password again."  %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>

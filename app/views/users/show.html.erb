@@ -44,7 +44,7 @@ Ongoing Tasks
     <% if !task.completed %>
     <tr>
       <th scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Mark as completed">
-<%= link_to '', user_task_complete_path(@user, task), method: :patch, class:" glyphicon glyphicon-ok" %>
+<%= link_to '', user_task_complete_path(@user, task), method: :patch, class:" glyphicon glyphicon-time" %>
       </th>
       <td><%= link_to task.title, user_task_path(@user, task) %></td>
       <% if task.deadline.blank? %>
@@ -62,8 +62,12 @@ Ongoing Tasks
 	      <% end %>
       <% end %>
       <td>
-        <%= link_to "Update", edit_user_task_path(@user, task) %>
-	<%= link_to "Delete", user_task_path(@user, task), method: :delete, data:{ confirm:  'Are you sure?' } %>
+      <em scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Edit task">
+<%= link_to '', edit_user_task_path(@user, task), class:" glyphicon glyphicon-pencil" %>
+      </em>
+        <em scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Delete task">
+        <%= link_to '', user_task_path(@user, task), method: :delete, data:{ confirm:  'Are you sure?' }, class:"glyphicon glyphicon-trash" %>
+        </em>
       </td>
     </tr>
     <% else %>
@@ -93,13 +97,17 @@ Completed Tasks
     <% if task.completed %>
     <tr>
       <th scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Mark as ongoing">
-<%= link_to '', user_task_undocomplete_path(@user, task), method: :patch, class:" glyphicon glyphicon-remove"%>
+<%= link_to '', user_task_undocomplete_path(@user, task), method: :patch, class:" glyphicon glyphicon-ok"%>
       </th>
       <td><%= link_to task.title, user_task_path(@user, task), style:"text-decoration: line-through;" %></td>
       <td style="text-decoration: line-through;"><%= task.deadline %></td>
       <td>
-        <%= link_to "Update", edit_user_task_path(@user, task) %>
-	<%= link_to "Delete", user_task_path(@user, task), method: :delete, data:{ confirm:  'Are you sure?' } %>
+      <em scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Edit task">
+<%= link_to '', edit_user_task_path(@user, task), class:" glyphicon glyphicon-pencil" %>
+      </em>
+        <em scope="row" class="btn" style="font-size:1em;" data-toggle="tooltip" title="Delete task">
+        <%= link_to '', user_task_path(@user, task), method: :delete, data:{ confirm:  'Are you sure?' }, class:" glyphicon glyphicon-trash" %>
+        </em>
       </td>
     </tr>
     <% else %>

@@ -1,4 +1,9 @@
 <% provide(:title, " #{current_user.name} tag: #{@tag.name}") %>
+
+<div>
+<%= render 'layouts/back' %>
+</div>
+
 <h1><%= "View Tag #{@tag.name}" %></h1>
 
 <h3>
@@ -23,5 +28,4 @@
 
 <div class="center" style="font-size:1.2em;">
 <%= link_to "Delete Tag", tag_path, method: :delete, data:{ confirm:  'Are you sure?' }, class:"btn btn-primary" %>
-<%= link_to "Back", "javascript:history.back()", class:"btn btn-primary" %>
 </div>

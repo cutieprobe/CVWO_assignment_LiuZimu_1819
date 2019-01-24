@@ -1,5 +1,9 @@
 <% provide(:title, " #{@user.name} #{@task.title}") %>
 
+<div>
+<%= render 'layouts/back' %>
+</div>
+
 <h3 style="font-weight:bold;text-align:center;font-size:2.5em;">
 <%= "View Task #{@task.title}" %>
 </h3>
@@ -11,7 +15,15 @@
   </li>
   <li class="list-group-item">
     <strong>Status:</strong>
-    <%= @task.completed ? "Completed" : "Ongoing" %>
+    <% if @task.completed %>
+    <em data-toggle="tooltip" title="Mark as ongoing">
+    <%= link_to '', user_task_undocomplete_path(@user, @task), method: :patch, class:" btn btn-primary glyphicon glyphicon-ok", style:"font-size:0.8em" %>
+    </em>
+    <% else %>
+    <em data-toggle="tooltip" title="Mark as completed">
+    <%= link_to '', user_task_complete_path(@user, @task), method: :patch, class:" btn btn-primary glyphicon glyphicon-time", style:"font-size:0.8em" %>
+    </em>
+    <% end %>
   </li>
   <li class="list-group-item">
     <strong>Deadline:</strong>
@@ -27,17 +39,11 @@
   </li>
 </ul>
 
-<div style="text-align:center;font-size:1.2em;">
-    <% if @task.completed %>
-    <em data-toggle="tooltip" title="Mark as ongoing">
-    <%= link_to '', user_task_undocomplete_path(@user, @task), method: :patch, class:" btn btn-primary glyphicon glyphicon-remove" %>
-    </em>
-    <% else %>
-    <em data-toggle="tooltip" title="Mark as completed">
-    <%= link_to '', user_task_complete_path(@user, @task), method: :patch, class:" btn btn-primary glyphicon glyphicon-ok" %>
-    </em>
-    <% end %>
-    <%= link_to "Update", edit_user_task_path(@user, @task), class:"btn btn-primary" %>
-    <%= link_to "Delete", user_task_path(@user, @task), method: :delete, data:{ confirm:  'Are you sure?' }, class:"btn btn-primary"%>
-    <%= link_to "Back", "javascript:history.back()", class:"btn btn-primary"%>
+<div style="text-align:center;font-size:1.8em;">
+      <em scope="row" class="btn" data-toggle="tooltip" title="Edit task">
+      <%= link_to '', edit_user_task_path(@user, @task), class:" glyphicon glyphicon-pencil" %>
+      </em>
+        <em scope="row" class="btn" data-toggle="tooltip" title="Delete task">
+        <%= link_to '', user_task_path(@user, @task), method: :delete, data:{ confirm:  'Are you sure?' }, class:" glyphicon glyphicon-trash" %>
+        </em>
 </div>
